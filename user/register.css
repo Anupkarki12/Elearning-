@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+}
+
+body{
+    background: url(./img/bg2.png);
+     height:auto;
+    margin: 0;
+}
+
+
+.main h2 {
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 0;
+    font-size: 120px;
+    margin-left: 50px;
+    font-weight: bolder;
+    padding: 2px;
+    color: rgb(112, 164, 223);
+    animation: glowPulse 1.5s ease-in-out infinite alternate ,waveMove 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    from {
+        text-shadow:
+            3px 4px 6px rgb(160, 199, 234),
+            5px 5px 6px rgba(173, 200, 237, 0.77);
+    }
+    to {
+        text-shadow:
+            6px 7px 9px rgb(150, 197, 244),
+            8px 8px 9px rgb(74, 59, 201);
+    }
+}
+    @keyframes waveMove {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-6px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(6px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.form {
+    background-color:rgba(176, 196, 222, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 450px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow:  0 8px 32px rgba(0, 0, 0, 0.25); 
+  margin-top: 100px;
+  margin-left: 100px;
+
+}
+
+.form h2 {
+    color: rgb(28, 3, 72);
+    margin: 20px 0;
+}
+
+.form input {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.form button {
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: white;
+    color: #333;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+   float: right;
+}
+
+.form button:hover {
+    background: #eaeaea;
+}
+.label{
+     display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+select {
+    width: 320px;
+    height: 36px;
+    padding: 5px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 20px;
+}
+.form a{
+    color: rgb(130, 139, 241);
+    text-decoration:underline
+}

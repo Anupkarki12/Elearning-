@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+}
+
+body{
+    background: url(./img/bg1.png);
+     height:auto;
+    margin: 0;
+}
+
+
+.main h2 {
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 0;
+    font-size: 120px;
+    margin-left: 50px;
+    font-weight: bolder;
+    padding: 2px;
+    color: rgb(112, 164, 223);
+    animation: glowPulse 1.5s ease-in-out infinite alternate ,waveMove 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    from {
+        text-shadow:
+            3px 4px 6px rgb(160, 199, 234),
+            5px 5px 6px rgba(173, 200, 237, 0.77);
+    }
+    to {
+        text-shadow:
+            6px 7px 9px rgb(150, 197, 244),
+            8px 8px 9px rgb(74, 59, 201);
+    }
+}
+    @keyframes waveMove {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-6px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(6px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.but {
+    border: 2px solid rgba(245, 245, 245, 0.22);
+    width: 500px;
+    height: 400px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.57);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px; 
+    margin-left: 160px;
+    margin-top: 80px;
+}
+.but button {
+    border: 2px solid 	SkyBlue;
+    border-radius: 40px;
+    background-color: 	LightSkyBlue;
+    padding: 15px 50px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+    
+}
+
+
+.but button:hover {
+    background-color: #0e0465;
+    transform: translateY(-2px) scale(1.05);
+    font-size: 18px;
+    color: #e6d2ad;
+}
+

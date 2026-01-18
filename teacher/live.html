@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Live Class | eLearning</title>
+    <link rel="stylesheet" href="./live.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <h2>ELearning</h2>
+    <div class="profile">
+        <span>Teacher</span>
+        <button onclick="logout()">Logout</button>
+    </div>
+</header>
+
+<div class="dashboard">
+   
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="./teacherdb.html">Dashboard</a></li>
+            <li><a href="./teacher_upload.html">Upload Notes</a></li>
+            <li><a href="./quiz.html">Set MCQs</a></li>
+            <li><a href="./blog.html">Blogs</a></li>
+            <li><a href="./section.html">Q/A Session</a></li>
+            <li><a href="./live.html">Live Classes</a></li>
+            <li><a href="./perinfo.html">Personal Info</a></li>
+        </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+        <h3>Live Class</h3>
+
+        <div class="container">
+
+            <!-- LEFT: LIVE VIDEO -->
+            <div class="live-section">
+                <h4>Live Video</h4>
+
+                <div class="video-box">
+                    <!-- Replace with YouTube Live / Meet link -->
+                    <iframe 
+                        src=""
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="live-buttons">
+                    <button class="btn start">Start Live</button>
+                    <button class="btn stop">End Live</button>
+                </div>
+            </div>
+
+            <!-- RIGHT: CLASS CONTROL -->
+            <div class="control-section">
+                <h4>Class Information</h4>
+
+                <label>Subject</label>
+                <input type="text" placeholder="Mathematics">
+
+                <label>Class</label>
+                <input type="text" placeholder="Class 10">
+
+                <label>Live Class Link</label>
+                <input type="text" placeholder="Paste YouTube / Meet link">
+
+                <label>Upload Notes (PDF)</label>
+                <input type="file"  placeholder="File">
+
+                <button class="btn save">Save Details</button>
+
+                <p class="note">
+                     Students will see the live class instantly after you go live.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+</div>
+
+<script>
+    function logout() {
+        alert("You have been logged out!");
+         window.location.href = '../user/index.html';
+    }
+</script>
+
+</body>
+</html>

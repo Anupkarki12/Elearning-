@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz | eLearning</title>
+    <link rel="stylesheet" href="./quiz.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <h2>ELearning Quiz</h2>
+    <div class="profile">
+        <span>Teacher</span>
+        <button onclick="logout()">Logout</button>
+    </div>
+</header>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="./teacherdb.html">Dashboard</a></li>
+            <li><a href="./teacher_upload.html">Upload Notes</a></li>
+            <li ><a href="./quiz.html">Set MCQs</a></li>
+            <li><a href="./blog.html">Blogs</a></li>
+            <li><a href="./section.html">Q/A Session</a></li>
+            <li><a href="./live.html">Live Classes</a></li>
+            <li><a href="./perinfo.html">Personal Info</a></li>
+        </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+        <div class="container">
+            <h2>Quiz Section</h2>
+
+            <!-- TEACHER PANEL -->
+            <div class="section teacher">
+                <h3>👩‍🏫 Teacher Panel – Add Question</h3>
+                <input type="text" id="q" placeholder="Enter Question">
+                <input type="text" id="op1" placeholder="Option 1">
+                <input type="text" id="op2" placeholder="Option 2">
+                <input type="text" id="op3" placeholder="Option 3">
+                <select title="ans" id="ans">
+                    <option value="">Select Correct Answer</option>
+                    <option value="0">Option 1</option>
+                    <option value="1">Option 2</option>
+                    <option value="2">Option 3</option>
+                </select>
+                <button onclick="addQuestion()">Add Question</button>
+            </div>
+
+            <!-- STUDENT QUIZ PART -->
+            <div class="section">
+                <h3>Questions</h3>
+                <div id="questionsList"></div>
+            </div>
+        </div>
+    </main>
+
+</div>
+
+<script>
+    function logout() {
+        alert("Logged out!");
+        window.location.href = '../user/index.html';
+    }
+
+    const quizData = [
+        {
+            question: "What is HTML?",
+            options: ["HyperText Markup Language", "Hyperlink Machine Language", "Home Tool Markup Language"],
+            answer: "HyperText Markup Language"
+        }
+    ];
+
+    const list = document.getElementById('questionsList');
+
+    function renderQuiz() {
+        list.innerHTML = "";
+
+        quizData.forEach((item, index) => {
+            const qDiv = document.createElement("div");
+            qDiv.className = "question";
+            qDiv.innerHTML = `<strong>Q${index + 1}:</strong> ${item.question}`;
+
+            const optionsDiv = document.createElement("div");
+            optionsDiv.className = "options";
+
+            item.options.forEach(opt => {
+                const btn = document.createElement("button");
+                btn.innerText = opt;
+
+                btn.onclick = () => {
+                    btn.classList.add(opt === item.answer ? "correct" : "wrong");
+
+                    const ans = document.createElement("div");
+                    ans.className = "answer";
+                    ans.innerHTML = `<strong>Answer:</strong> ${item.answer}`;
+                    qDiv.appendChild(ans);
+
+                    optionsDiv.querySelectorAll("button").forEach(b => b.disabled = true);
+                };
+
+                optionsDiv.appendChild(btn);
+            });
+
+            qDiv.appendChild(optionsDiv);
+            list.appendChild(qDiv);
+        });
+    }
+
+    function addQuestion() {
+        const q = document.getElementById("q").value;
+        const o1 = document.getElementById("op1").value;
+        const o2 = document.getElementById("op2").value;
+        const o3 = document.getElementById("op3").value;
+        const a = document.getElementById("ans").value;
+
+        if (!q || !o1 || !o2 || !o3 || a === "") {
+            alert("Fill all fields");
+            return;
+        }
+
+        quizData.push({
+            question: q,
+            options: [o1, o2, o3],
+            answer: [o1, o2, o3][a]
+        });
+
+        document.querySelectorAll(".teacher input").forEach(i => i.value = "");
+        document.getElementById("ans").value = "";
+
+        renderQuiz();
+    }
+
+    renderQuiz();
+</script>
+
+</body>
+</html>

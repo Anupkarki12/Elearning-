@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+   background: linear-gradient(135deg, #b3d8ec, #ffffff); /* light blue to white */
+  min-height: 90vh;
+}
+
+header {
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(7, 107, 183, 0.85),
+    rgba(104, 187, 227, 0.85)
+  );
+   padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+header h4{
+font-weight: 800;
+font-size: 30px;
+}
+.main{
+    margin-left: 500PX;
+    margin-TOP: 100PX;
+    margin-bottom: 100px;
+}
+.main h2{
+    font-size: 30px;
+    margin-left: 10px;
+    padding-left: 150px;
+
+}
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.129);
+  
+    padding: 25px;
+    border:1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    box-shadow:0 4px 6px rgba(0, 0, 0, 0.7);
+}
+
+.profile-form label {
+    font-weight: 600;
+    color: #2d3a5f;
+}
+
+.profile-form input[type="email"],
+.profile-form input[type="password"],
+.profile-form input[type="file"] {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.profile-form button {
+    padding: 10px;
+    background: linear-gradient(135deg, #2ed8a7, #1aa179); /* green button */
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.profile-form button:hover {
+    background: linear-gradient(135deg, #1aa179, #2ed8a7);
+}
+ .logout-btn {
+            position: fixed; 
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #f44336; 
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            color: aliceblue;
+        }
+
+        .logout-btn:hover {
+            background-color: #d32f2f;
+        }

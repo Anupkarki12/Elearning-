@@ -1,0 +1,125 @@
+
+
+    body {
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+   height: auto;
+    margin: 0;
+   
+}
+
+
+.main h2 {
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 0;
+    font-size: 80px;
+    text-align: center;
+    font-weight: bolder;
+    padding: 2px;
+    color: rgb(4, 32, 63);
+    animation: glowPulse 1.5s ease-in-out infinite alternate ,waveMove 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    from {
+        text-shadow:
+            3px 4px 6px rgb(160, 199, 234),
+            5px 5px 6px rgba(173, 200, 237, 0.77);
+    }
+    to {
+        text-shadow:
+            6px 7px 9px rgb(150, 197, 244),
+            8px 8px 9px rgb(74, 59, 201);
+    }
+}
+    @keyframes waveMove {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-6px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(6px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.box{
+     background: rgba(255, 255, 255, 0.215);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    border: 1px solid rgba(24, 20, 20, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.81);
+    padding: 50px;
+    width: 600px;
+   margin-left: 450px;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 700px) {
+    .box {
+        width: 90%;
+    }
+}
+label{
+    font-size: 20px;
+    font-weight: 300;
+    color: #042442;
+}
+.header h2{
+    margin: 0;
+    font-size: 35px;
+    color: #115798;
+    font-weight: 600px;
+    text-align: center;
+}
+.flex>input{
+    width:180px;
+   height: 28px;
+    border-radius: 8px;
+     text-align: center;
+     font-size: 12px;
+     border: none;
+    margin-left: 5px;
+}
+input{
+   width: 100%;
+   height: 32px;
+    border-radius: 8px;
+     text-align: center;
+     font-size: 12px;
+     border: none;
+     background-color: aliceblue;
+}
+select{
+        position: relative;  
+           z-index: 1;
+      width: 100%;
+   height: 28px;
+    border-radius: 8px;
+     text-align: center;
+     font-size: 12px;
+     border: none;
+     background-color: aliceblue; 
+}
+    button {
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: white;
+    color: #333;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: 250px;
+}
+
+button:hover {
+    background: #eaeaea;
+}

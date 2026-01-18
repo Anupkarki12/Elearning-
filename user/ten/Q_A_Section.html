@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Q/A System</title>
+    <link rel="stylesheet" href="./Q_A.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Student Q/A Section</h2>
+
+        <!-- Student Question Section -->
+        <div class="section">
+            <h3>Ask a Question</h3>
+            <input type="text" id="studentQuestion" placeholder="Type your question here">
+            <button onclick="addQuestion()">Submit Question</button>
+        </div>
+
+        <!-- Previous Questions Section -->
+        <div class="section">
+            <h3>Previous Questions</h3>
+            <div id="questionsList"></div>
+        </div>
+    </div>
+<a href="../index.html" class="logout-btn">Logout</a>
+    <script>
+        const qaData = []; // Stores questions and answers
+
+        // Add a student question
+        function addQuestion() {
+            const input = document.getElementById('studentQuestion');
+            const questionText = input.value.trim();
+            if (!questionText) { alert("Enter a question."); return; }
+
+            // Add question with empty answer
+            qaData.push({ question: questionText, answer: "" });
+            input.value = '';
+            renderQuestions();
+        }
+
+        // Render all questions (with answers if available)
+        function renderQuestions() {
+            const list = document.getElementById('questionsList');
+            list.innerHTML = '';
+
+            qaData.forEach(item => {
+                const qDiv = document.createElement('div');
+                qDiv.className = 'question';
+                qDiv.innerHTML = `<strong>Q:</strong> ${item.question}`;
+
+                // Only show answer if it exists
+                if (item.answer) {
+                    const aDiv = document.createElement('div');
+                    aDiv.className = 'answer';
+                    aDiv.innerHTML = `<strong>Answer:</strong> ${item.answer}`;
+                    qDiv.appendChild(aDiv);
+                }
+
+                list.appendChild(qDiv);
+            });
+        }
+
+        // Example: Admin can add answer via console for now
+        // For demo, let's pre-fill some answers (in real app, admin form would update qaData)
+        qaData.push({ question: "What is HTML?", answer: "HTML stands for HyperText Markup Language." });
+        qaData.push({ question: "What is CSS?", answer: "" });
+        renderQuestions();
+    </script>
+
+</body>
+
+</html>

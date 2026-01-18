@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | eLearning</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="perinfo.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <h2>ELearning</h2>
+    <div class="profile">
+        <span>Teacher</span>
+        <button onclick="logout()">Logout</button>
+    </div>
+</header>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="./teacherdb.html">Dashboard</a></li>
+            <li><a href="./teacher_upload.html">Upload Notes</a></li>
+            <li><a href="./quiz.html">Set MCQs</a></li>
+            <li><a href="./blog.html">Blogs</a></li>
+            <li><a href="./section.html">Q/A Session</a></li>
+            <li><a href="./live.html">Live Classes</a></li>
+            <li ><a href="./perinfo.html">Personal Info</a></li>
+        </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+        <h3>Update Profile</h3>
+
+        <form class="profile-form" action="" method="POST" enctype="multipart/form-data">
+            <label>Profile Picture</label>
+            <input placeholder="image" type="file" name="profile_pic" accept="image/*">
+
+            <label>Current Email</label>
+            <input type="email" name="current_email" placeholder="Current Email" required>
+
+            <label>Current Password</label>
+            <input type="password" name="current_password" placeholder="Enter Current Password" required>
+
+            <label>New Email</label>
+            <input type="email" name="new_email" placeholder="New Email" required>
+
+            <label>New Password</label>
+            <input type="password" name="new_password" placeholder="Enter New Password" required>
+
+            <button type="submit" name="update_profile">Update Profile</button>
+        </form>
+    </main>
+
+</div>
+
+<script>
+    function logout() {
+        alert("You have been logged out!");
+        window.location.href = '../user/index.html';
+    }
+</script>
+
+</body>
+</html>

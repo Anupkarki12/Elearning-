@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Blog Page with File Upload</title>
+<link rel="stylesheet" href="./blog.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Student Blog Page</h2>
+
+    <!-- Section to create new post -->
+    <div class="section">
+        <h3>Create a Blog / Upload Question</h3>
+        <input type="text" id="authorName" placeholder="Your Name"><br>
+        <input type="text" id="blogTitle" placeholder="Title of your article or question"><br>
+        <textarea id="blogContent" rows="5" placeholder="Write your article or question here"></textarea><br>
+        <input type="file" id="blogFile" placeholder="BlogFile"><br>
+        <button onclick="addPost()">Post</button>
+    </div>
+
+    <!-- Section to display previous posts -->
+    <div class="section">
+        <h3>Previous Articles / Questions</h3>
+        <div id="blogList"></div>
+    </div>
+</div>
+<a href="../index.html" class="logout-btn">Logout</a>
+<script>
+function addPost() {
+    const name = document.getElementById('authorName').value.trim();
+    const title = document.getElementById('blogTitle').value.trim();
+    const content = document.getElementById('blogContent').value.trim();
+    const fileInput = document.getElementById('blogFile');
+    const file = fileInput.files[0];
+
+    if(!name || !title || (!content && !file)) {
+        alert("Please fill name, title, and either write content or select a file.");
+        return;
+    }
+
+    const postDiv = document.createElement('div');
+    postDiv.className = 'blog-post';
+    let html = `<div class="blog-title">${title}</div>
+                <div class="blog-author">By: ${name}</div>`;
+    
+    if(content) {
+        html += `<div class="blog-content">${content}</div>`;
+    }
+
+    if(file) {
+        html += `<div class="blog-content">File Uploaded: <a href="${URL.createObjectURL(file)}" target="_blank">${file.name}</a></div>`;
+    }
+
+    postDiv.innerHTML = html;
+
+    // Add post to the top
+    const blogList = document.getElementById('blogList');
+    blogList.insertBefore(postDiv, blogList.firstChild);
+
+    // Clear inputs
+    document.getElementById('authorName').value = '';
+    document.getElementById('blogTitle').value = '';
+    document.getElementById('blogContent').value = '';
+    fileInput.value = '';
+}
+</script>
+
+</body>
+</html>

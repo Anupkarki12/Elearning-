@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./quiz.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Quiz Section</h2>
+
+        <!-- Previous Questions / MCQs Section -->
+        <div class="section">
+            <h3>Questions</h3>
+            <div id="questionsList"></div>
+        </div>
+    </div>
+<a href="../index.html" class="logout-btn">Logout</a>
+    <script>
+        // MCQ Data (question, options, correct answer)
+        const quizData = [
+            {
+                question: "What is HTML?",
+                options: ["HyperText Markup Language", "Hyperlink Machine Language", "Home Tool Markup Language"],
+                answer: "HyperText Markup Language"
+            },
+            {
+                question: "What does CSS stand for?",
+                options: ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style System"],
+                answer: "Cascading Style Sheets"
+            },
+            {
+                question: "Which tag is used for paragraph?",
+                options: ["<p>", "<h1>", "<div>"],
+                answer: "<p>"
+            }
+        ];
+
+        const list = document.getElementById('questionsList');
+
+        function renderQuiz() {
+            list.innerHTML = '';
+
+            quizData.forEach((item, index) => {
+                const qDiv = document.createElement('div');
+                qDiv.className = 'question';
+                qDiv.innerHTML = `<strong>Q${index + 1}:</strong> ${item.question}`;
+
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'options';
+
+                item.options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.innerText = opt;
+
+                    btn.onclick = () => {
+                        if (opt === item.answer) {
+                            btn.classList.add('correct');
+                        } else {
+                            btn.classList.add('wrong');
+                        }
+
+                        // Show correct answer
+                        const ansDiv = document.createElement('div');
+                        ansDiv.className = 'answer';
+                        ansDiv.innerHTML = `<strong>Answer:</strong> ${item.answer}`;
+                        qDiv.appendChild(ansDiv);
+
+                        // Disable all buttons after selection
+                        const allBtns = optionsDiv.querySelectorAll('button');
+                        allBtns.forEach(b => b.disabled = true);
+                    }
+
+                    optionsDiv.appendChild(btn);
+                });
+
+                qDiv.appendChild(optionsDiv);
+                list.appendChild(qDiv);
+            });
+        }
+
+        renderQuiz();
+    </script>
+
+</body>
+
+</html>
